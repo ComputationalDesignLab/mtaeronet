@@ -17,17 +17,31 @@ This work also introduces a multiobjective optimization problem formulation for 
 
 The best way to run the implementation is through a conda environment. Miniconda is the recommended way to create a new conda environment with a Python installation that has a version of at least 3.12. Follow the steps below to create the new conda environment and use this implementation. 
 
-1. Create a new conda environment.
+1. Create a new conda environment and activate it.
+
+   `conda create -n your_ev python=3.12`
 
 2. Install the requirements for the environment.
+
+   `pip install requirements.txt`
    
 3. Download the latest release of the code as a zip file and include it in your working directory.
 
-The relevant code and implementations for the methods are located in the src folder in the repo.  
+The relevant code and implementations for the methods are located in the `src` folder in the repo. Individual runscripts for the hyperparameter optimization, model evaluation and uncertainty quantification are also provided to run the models on the wing geometry dataset with ease. In the `src` folder, the `MTAeroNet` class corresponds to the MTAeroNet - $C_p$ model and the MHAeroNet class corresponds to the MTAeroNet - $C_p$ and $C_f$ model from the paper.    
 
 # Common Research Model wing dataset
 
 # Running the code
 
+The code to train and evalaute the models can be run using a few simple commands from a terminal or in a jobscript on a high-performance computing environment. 
+
+1. Running the hyperparameter optimization script. This requires specifying the number of training samples to be used for the model, the modeling method, the type of optimization, the number of trials and the random seed. In the associated publication, the seed values from 1 to 5 are used to run 5 different sets of the optimization.
+
+2. Running the model prediction/evaluation script. This requires specifying the number of training samples to be used for the model and the method. The script runs the training with 10 different random initializations and using the results from all 5 hyperparameter sets leading to a total of 50 model evaluations. The training seeds used are from 1 to 10.
+
+3. Running the uncertainty quantification script. This only requires specifying the number of training samples used to train the model, as by default this runs the MTAeroNet - $C_p$ and $C_f$ model (which corresponds to the MHAeroNet class). 
+
 # Citation 
+
+(ADD ARXIV PAPER CITATION)
 
