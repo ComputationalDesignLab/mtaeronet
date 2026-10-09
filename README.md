@@ -27,21 +27,27 @@ The best way to run the implementation is through a conda environment. Miniconda
    
 3. Download the latest release of the code as a zip file and include it in your working directory.
 
-The relevant code and implementations for the methods are located in the `src` folder in the repo. Individual runscripts for the hyperparameter optimization, model evaluation and uncertainty quantification are also provided to run the models on the wing geometry dataset with ease. In the `src` folder, the `MTAeroNet` class corresponds to the MTAeroNet - $C_p$ model and the MHAeroNet class corresponds to the MTAeroNet - $C_p$ and $C_f$ model from the paper.    
+The relevant code and implementations for the methods are located in the `src` folder in the repo. Individual runscripts for the hyperparameter optimization, model evaluation and uncertainty quantification are also provided to run the models on the wing geometry dataset with ease. In the `src` folder, the `MTAeroNet` class corresponds to the MTAeroNet - $C_p$ model and the `MHAeroNet` class corresponds to the MTAeroNet - $C_p$ and $C_f$ model from the paper.    
 
 # Common Research Model wing dataset
 
 # Running the code
 
-The code to train and evalaute the models can be run using a few simple commands from a terminal or in a jobscript on a high-performance computing environment. 
+The code to train and evalaute the models can be run using a few simple commands from a terminal or in a jobscript on a high-performance computing environment. These commands must be run from the root directory of the code that can be downloaded from the latest release.  
 
-1. Running the hyperparameter optimization script. This requires specifying the number of training samples to be used for the model, the modeling method, the type of optimization, the number of trials and the random seed. In the associated publication, the seed values from 1 to 5 are used to run 5 different sets of the optimization.
+1. Running the hyperparameter optimization script. This requires specifying the number of training samples to be used for the model, the modeling method, the type of optimization, the number of trials and the random seed. In the associated publication, the seed values from 1 to 5 are used to run 5 different sets of the optimization. An example of the running command for this script is given below.
 
-2. Running the model prediction/evaluation script. This requires specifying the number of training samples to be used for the model and the method. The script runs the training with 10 different random initializations and using the results from all 5 hyperparameter sets leading to a total of 50 model evaluations. The training seeds used are from 1 to 10.
+   `python runscript_hpo_crm_wing.py --samples 50 --method "mhaero" --type "multi" --trials 450 --seed 1`
+   
+2. Running the model prediction/evaluation script. This requires specifying the number of training samples to be used for the model and the method. The script runs the training with 10 different random initializations and using the results from all 5 hyperparameter sets leading to a total of 50 model evaluations. The training seeds used are from 1 to 10. An example of the running command for this script is given below.
 
-3. Running the uncertainty quantification script. This only requires specifying the number of training samples used to train the model, as by default this runs the MTAeroNet - $C_p$ and $C_f$ model (which corresponds to the MHAeroNet class). 
+   `python runscript_prediction_crm_wing.py --samples 50 --method "mhaero"`
+
+3. Running the uncertainty quantification script. This only requires specifying the number of training samples used to train the model, as by default this runs the MTAeroNet - $C_p$ and $C_f$ model (which corresponds to the MHAeroNet class). An example of the running command for this script is given below. 
+
+   `python runscript_uq_crm_wing.py --samples 50`
 
 # Citation 
 
-(ADD ARXIV PAPER CITATION)
+(ADD PAPER CITATION)
 
