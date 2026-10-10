@@ -11,11 +11,11 @@ This work introduces the Multi-task Aerodynamics Net (MTAeroNet) surrogate model
       <p align="center">
          <img src="images/mtaero_cp.png"/>
       </p>
-      <b>(a) MTAeroNet - $C_p$
+      <b>(a) MTAeroNet - $$C_p$$
       <p align="center">
          <img src="images/mtaero_cp_cf.png"/>
       </p>
-      <b>(b) MTAeroNet - $C_p$
+      <b>(b) MTAeroNet - $$C_p$$
    </tr>
 </table>
 
@@ -35,9 +35,9 @@ The best way to run the implementation is through a conda environment. Miniconda
 
 3. Install the requirements for the environment using the requirements.txt file provided.
 
-   `pip install requirements.txt`
+   `pip install -r requirements.txt`
 
-The relevant code and implementations for the methods are located in the `src` folder in the repo. Individual runscripts for the hyperparameter optimization, model evaluation and uncertainty quantification are also provided to run the models on the wing geometry dataset with ease. In the `src` folder, the `MTAeroNet` class corresponds to the MTAeroNet - $C_p$ model and the `MHAeroNet` class corresponds to the MTAeroNet - $C_p$ and $C_f$ model from the paper.    
+The relevant code and implementations for the methods are located in the `src` folder in the repo. Individual runscripts for the hyperparameter optimization, model evaluation and uncertainty quantification are also provided to run the models on the wing geometry dataset with ease. In the `src` folder, the `MTAeroNet` class corresponds to the MTAeroNet - $$C_p$$ model and the `MHAeroNet` class corresponds to the MTAeroNet - $$C_p$$ and $$C_f$$ model from the paper.    
 
 # Common Research Model wing dataset
 
