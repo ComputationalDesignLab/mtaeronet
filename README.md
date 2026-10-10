@@ -6,6 +6,19 @@ This repository provides an open-source implementation of the multi-task surroga
 
 This work introduces the Multi-task Aerodynamics Net (MTAeroNet) surrogate modeling architecture, which has a main network to predict integrated aerodynamic quantities and multiple sub-networks to predict various surface quantities for a three-dimensional body in transonic flow. A graphical overview of the modeling architecture is shown in the diagram below. In this implementation and work, each sub-network and the main network of the modeling architecture are MLP networks. This is done to promote simplicity within the modeling architecture while still maintaining prediction accuracy. 
 
+<table border="0">
+   <tr>
+      <p align="center">
+         <img src="images/mtaero_cp.png"/>
+      </p>
+      <b>(a) MTAeroNet - $C_p$
+      <p align="center">
+         <img src="images/mtaero_cp_cf.png"/>
+      </p>
+      <b>(b) MTAeroNet - $C_p$
+   </tr>
+</table>
+
 ## Multiobjective Hyperparameter Optimization
 
 This work also introduces a multiobjective optimization problem formulation for selecting the optimal hyperparameters for multi-task aerodynamic surrogate models. There are two objectives in the problem formulation. One objective is the mean of the normalized root mean square errors (NRMSE) in the integrated coefficients, and the other objective is the mean NRMSE in the surface quantities across the surface of the three-dimensional body in transonic flow. An open-source implementation of this formulation and its solution procedure is provided, which uses Optuna and Bayesian optimization with Tree-structured Parzen estimators to solve the optimization problem. Additionally, single objective optimization problem formulations and an implementation of their solution through Optuna is also provided for models that are not multi-task in nature but are also investigated in the work.  
@@ -18,11 +31,11 @@ The best way to run the implementation is through a conda environment. Miniconda
 
    `conda create -n your_ev python=3.12`
 
-2. Install the requirements for the environment.
+2. Download the latest release of the code as a zip file and include it in your working directory.
+
+3. Install the requirements for the environment using the requirements.txt file provided.
 
    `pip install requirements.txt`
-   
-3. Download the latest release of the code as a zip file and include it in your working directory.
 
 The relevant code and implementations for the methods are located in the `src` folder in the repo. Individual runscripts for the hyperparameter optimization, model evaluation and uncertainty quantification are also provided to run the models on the wing geometry dataset with ease. In the `src` folder, the `MTAeroNet` class corresponds to the MTAeroNet - $C_p$ model and the `MHAeroNet` class corresponds to the MTAeroNet - $C_p$ and $C_f$ model from the paper.    
 
