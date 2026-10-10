@@ -11,11 +11,11 @@ This work introduces the Multi-task Aerodynamics Net (MTAeroNet) surrogate model
       <p align="center">
          <img src="images/mtaero_cp.png"/>
       </p>
-      <b>(a) MTAeroNet - $`C_p`$
+      <b>(a) MTAeroNet - C<sub>p</sub>
       <p align="center">
          <img src="images/mtaero_cp_cf.png"/>
       </p>
-      <b>(b) MTAeroNet - \$'C_p'\$
+      <b>(b) MTAeroNet - C<sub>p</sub> and C<sub>f</sub>
    </tr>
 </table>
 
@@ -37,7 +37,7 @@ The best way to run the implementation is through a conda environment. Miniconda
 
    `pip install -r requirements.txt`
 
-The relevant code and implementations for the methods are located in the `src` folder in the repo. Individual runscripts for the hyperparameter optimization, model evaluation and uncertainty quantification are also provided to run the models on the wing geometry dataset with ease. In the `src` folder, the `MTAeroNet` class corresponds to the MTAeroNet - \$'C_p'\$ model and the `MHAeroNet` class corresponds to the MTAeroNet - \$'C_p'\$ and \$'C_f'\$ model from the paper.    
+The relevant code and implementations for the methods are located in the `src` folder in the repo. Individual runscripts for the hyperparameter optimization, model evaluation and uncertainty quantification are also provided to run the models on the wing geometry dataset with ease. In the `src` folder, the `MTAeroNet` class corresponds to the MTAeroNet - C<sub>p</sub> model and the `MHAeroNet` class corresponds to the MTAeroNet - C<sub>p</sub> and C<sub>f</sub> model from the paper.    
 
 # Common Research Model wing dataset
 
@@ -53,7 +53,7 @@ The code to train and evalaute the models can be run using a few simple commands
 
    `python runscript_prediction_crm_wing.py --samples 50 --method "mhaero"`
 
-3. Running the uncertainty quantification script. This only requires specifying the number of training samples used to train the model, as by default this runs the MTAeroNet - \$'C_p'\$ and \$'C_f'\$ model (which corresponds to the MHAeroNet class). An example of the running command for this script is given below. 
+3. Running the uncertainty quantification script. This only requires specifying the number of training samples used to train the model, as by default this runs the MTAeroNet - C<sub>p</sub> and C<sub>f</sub> model (which corresponds to the MHAeroNet class). An example of the running command for this script is given below. 
 
    `python runscript_uq_crm_wing.py --samples 50`
 
