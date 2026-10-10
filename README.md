@@ -39,8 +39,6 @@ The best way to run the implementation is through a conda environment. Miniconda
 
 The relevant code and implementations for the methods are located in the `src` folder in the repo. Individual runscripts for the hyperparameter optimization, model evaluation and uncertainty quantification are also provided to run the models on the wing geometry dataset with ease. In the `src` folder, the `MTAeroNet` class corresponds to the MTAeroNet - C<sub>p</sub> model and the `MHAeroNet` class corresponds to the MTAeroNet - C<sub>p</sub> and C<sub>f</sub> model from the paper.    
 
-# Common Research Model wing dataset
-
 # Running the code
 
 The code to train and evalaute the models can be run using a few simple commands from a terminal or in a jobscript on a high-performance computing environment. These commands must be run from the root directory of the code that can be downloaded from the latest release.  
