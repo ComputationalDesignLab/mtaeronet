@@ -9,11 +9,11 @@ This work introduces the Multi-task Aerodynamics Net (MTAeroNet) surrogate model
 <table border="0">
    <tr>
       <p align="center">
-         <img src="images/mtaero_cp.png"/>
+         <img src="images/mtaero_cp.png" width=50% />
       </p>
       <b>(a) MTAeroNet - C<sub>p</sub>
       <p align="center">
-         <img src="images/mtaero_cp_cf.png"/>
+         <img src="images/mtaero_cp_cf.png" width = 50%/>
       </p>
       <b>(b) MTAeroNet - C<sub>p</sub> and C<sub>f</sub>
    </tr>
@@ -21,7 +21,21 @@ This work introduces the Multi-task Aerodynamics Net (MTAeroNet) surrogate model
 
 ## Multiobjective Hyperparameter Optimization
 
-This work also introduces a multiobjective optimization problem formulation for selecting the optimal hyperparameters for multi-task aerodynamic surrogate models. There are two objectives in the problem formulation. One objective is the mean of the normalized root mean square errors (NRMSE) in the integrated coefficients, and the other objective is the mean NRMSE in the surface quantities across the surface of the three-dimensional body in transonic flow. An open-source implementation of this formulation and its solution procedure is provided, which uses Optuna and Bayesian optimization with Tree-structured Parzen estimators to solve the optimization problem. Additionally, single objective optimization problem formulations and an implementation of their solution through Optuna is also provided for models that are not multi-task in nature but are also investigated in the work.  
+This work also introduces a multiobjective optimization problem formulation for selecting the optimal hyperparameters for multi-task aerodynamic surrogate models. There are two objectives in the problem formulation. One objective is the mean of the normalized root mean square errors (NRMSE) of the scalar aerodynamic quantities of interest, and the other objective is the mean NRMSE in the surface quantities across the surface of the three-dimensional body in transonic flow. An open-source implementation of this formulation and its solution procedure is provided, which uses Optuna and Bayesian optimization with Tree-structured Parzen estimators to solve the optimization problem. Additionally, single objective optimization problem formulations and an implementation of their solution through Optuna is also provided for models that are not multi-task in nature but are also investigated in the work.  
+
+# NASA common research model wing dataset
+
+The aerodynamic data used to construct and train the models used within this work has been provided in an open-source format on Hugging Face. This is to promote reusability of the results and also provide the dataset as a general means to train and benchmark aerodynamic ML models for transonic flow. If you would like to access the data, please visit the following Hugging Face dataset.
+
+Hugging Face Dataset: [https://huggingface.co/datasets/computationaldesignlab/nasa-crm-wing-data](https://huggingface.co/datasets/computationaldesignlab/nasa-crm-wing-data)
+
+To use the dataset files along with this code, all quantities of interest must be consolidated and format into `.mat` files containing dictionaries of `numpy` arrays with the following keys:
+- `x`: This should be an array containing operating conditions and spanwise twist angles.
+- `coeff`: This should be an array containing scalar quantities of interest for the CRM wing.
+- `coefPressure`: This should be an array containing the surface pressure coefficient distributions of the CRM wing.
+- `skinFriction`: This should be an array containing the surface skin friction magnitude distributions of the CRM wing.
+
+The `.mat` files should be stored in a folder named `data` within the same directory as the runscripts as per the current version of the scripts. However, the file paths for the `.mat` files can be changed to the desired file paths before running the runscripts. This must be done at every location there is a call to the `loadmat` function.  
 
 # Installation and setup
 
@@ -29,13 +43,11 @@ The best way to run the implementation is through a conda environment. Miniconda
 
 1. Create a new conda environment and activate it.
 
-   `conda create -n your_ev python=3.12`
+   `conda create -n your_env python=3.12`
 
 2. Download the latest release of the code as a zip file and include it in your working directory.
 
-3. Install the requirements for the environment using the requirements.txt file provided.
-
-   `pip install -r requirements.txt`
+3. Install the following requirements for the environment using `pip`.
 
 The relevant code and implementations for the methods are located in the `src` folder in the repo. Individual runscripts for the hyperparameter optimization, model evaluation and uncertainty quantification are also provided to run the models on the wing geometry dataset with ease. In the `src` folder, the `MTAeroNet` class corresponds to the MTAeroNet - C<sub>p</sub> model and the `MHAeroNet` class corresponds to the MTAeroNet - C<sub>p</sub> and C<sub>f</sub> model from the paper.    
 
