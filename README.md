@@ -11,7 +11,7 @@ This work introduces the Multi-task Aerodynamics Net (MTAeroNet) surrogate model
       <p align="center">
          <img src="images/mtaero_cp.png" width=50% />
       </p>
-      <b>(a) MTAeroNet - C<sub>p</sub>
+      (a) MTAeroNet - C<sub>p</sub>
       <p align="center">
          <img src="images/mtaero_cp_cf.png" width = 50%/>
       </p>
@@ -47,7 +47,13 @@ The best way to run the implementation is through a conda environment. Miniconda
 
 2. Download the latest release of the code as a zip file and include it in your working directory.
 
-3. Install the following requirements for the environment using `pip`.
+3. Install the following required packages for the environment using `pip`.
+
+* PyTorch (2.12.1 and CUDA support is desirable)
+* Numpy (2.4.4)
+* Scipy (1.17.1)
+* Optuna (4.9.0)
+* Scikit-learn (1.8.0)
 
 The relevant code and implementations for the methods are located in the `src` folder in the repo. Individual runscripts for the hyperparameter optimization, model evaluation and uncertainty quantification are also provided to run the models on the wing geometry dataset with ease. In the `src` folder, the `MTAeroNet` class corresponds to the MTAeroNet - C<sub>p</sub> model and the `MHAeroNet` class corresponds to the MTAeroNet - C<sub>p</sub> and C<sub>f</sub> model from the paper.    
 
@@ -69,5 +75,7 @@ The code to train and evalaute the models can be run using a few simple commands
 
 # Citation 
 
-(ADD PAPER CITATION)
+If you find this research and associated data useful, please cite the following paper. We welcome any opportunities for collaborating on future extensions of this work. 
+
+(Paper is currently submitted and this will be updated in the future). 
 
