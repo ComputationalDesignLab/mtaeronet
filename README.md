@@ -65,7 +65,7 @@ The code to train and evalaute the models can be run using a few simple commands
 
    `python runscript_hpo_crm_wing.py --samples 50 --method "mhaero" --type "multi" --trials 450 --seed 1`
    
-2. Running the model prediction/evaluation script. This requires specifying the number of training samples to be used for the model and the method. The script runs the training with 10 different random initializations and using the results from all 5 hyperparameter sets leading to a total of 50 model evaluations. The training seeds used are from 1 to 10. An example of the running command for this script is given below.
+2. Running the model prediction/evaluation script. This requires specifying the number of training samples to be used for the model and the method. The script runs the training with 10 different random initializations and using the results from all 5 hyperparameter sets leading to a total of 50 model evaluations. The training seeds used are from 0 to 9. An example of the running command for this script is given below.
 
    `python runscript_prediction_crm_wing.py --samples 50 --method "mhaero"`
 
