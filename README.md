@@ -6,17 +6,11 @@ This repository provides an open-source implementation of the multi-task surroga
 
 This work introduces the Multi-task Aerodynamics Net (MTAeroNet) surrogate modeling architecture, which has a main network to predict integrated aerodynamic quantities along with a set of latent variables and the latent variables are then provided to multiple sub-networks to predict various surface quantities for a three-dimensional body in transonic flow. A graphical overview of the modeling architecture is shown in the diagram below. In this implementation and work, each sub-network and the main network of the modeling architecture are MLP networks. This is done to promote simplicity within the modeling architecture while still maintaining prediction accuracy. 
 
-<table border="0">
-   <tr>
-      <p align="center">
-         <img src="images/mtaero_cp.png" width=50% />
-      </p>
-      (a) MTAeroNet - C<sub>p</sub>
-      <p align="center">
-         <img src="images/mtaero_cp_cf.png" width = 50%/>
-      </p>
-      <b>(b) MTAeroNet - C<sub>p</sub> and C<sub>f</sub>
-   </tr>
+<table>
+  <tr>
+    <td><img src="images/mtaero_cp.png" width="100%"></td>
+    <td><img src="images/mtaero_cp_cf.png" width="100%"></td>
+  </tr>
 </table>
 
 ## Multiobjective Hyperparameter Optimization
