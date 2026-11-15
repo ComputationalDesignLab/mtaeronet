@@ -20,7 +20,6 @@ kwargs = {"dtype": torch.float32, "device": "cuda" if torch.cuda.is_available() 
 parser = argparse.ArgumentParser()
 parser.add_argument("--samples", help="number of samples")
 parser.add_argument("--method", help="modeling method to use")
-parser.add_argument("--test", help="data for testing")
 args = parser.parse_args()
 
 # constants
@@ -28,7 +27,6 @@ NUM_SAMPLES = int(args.samples)
 METHOD = args.method
 N = int(NUM_SAMPLES/50)
 TYPE = "balanced"
-TEST = args.test
 
 # import training data
 X = []
