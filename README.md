@@ -6,7 +6,7 @@ This repository provides an open-source implementation of the multi-task surroga
 
 This work introduces the Multi-task Aerodynamics Net (MTAeroNet) surrogate modeling architecture, which has a main network to predict integrated aerodynamic quantities along with a set of latent variables and the latent variables are then provided to multiple sub-networks to predict various surface quantities for a three-dimensional body in transonic flow. A graphical overview of the modeling architecture is shown in the diagram below. In this implementation and work, each sub-network and the main network of the modeling architecture are MLP networks. This is done to promote simplicity within the modeling architecture while still maintaining prediction accuracy. 
 
-<table style="border: none;">
+<table border="0">
   <tr>
     <td><img src="images/mtaero_cp.png" width="100%"></td>
     <td><img src="images/mtaero_cp_cf.png" width="100%"></td>
@@ -59,7 +59,7 @@ The code to train and evalaute the models can be run using a few simple commands
 
    `python runscript_hpo_crm_wing.py --samples 50 --method "mhaero" --type "multi" --trials 450 --seed 1`
    
-2. Running the model prediction/evaluation script. This requires specifying the number of training samples to be used for the model and the method. The script runs the training with 10 different random initializations and using the results from all 5 hyperparameter sets leading to a total of 50 model evaluations. The training seeds used are from 0 to 9. An example of the running command for this script is given below.
+2. Running the model prediction/evaluation script. This requires specifying the number of training samples to be used for the model and the method. The script runs the training with 10 different random initializations and using the results from all 5 hyperparameter sets leading to a total of 50 model evaluations. The training seeds used are from 1 to 10. An example of the running command for this script is given below.
 
    `python runscript_prediction_crm_wing.py --samples 50 --method "mhaero"`
 
